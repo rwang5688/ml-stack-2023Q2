@@ -1,5 +1,4 @@
-[
- 'age',
+['age',
  'campaign',
  'pdays',
  'previous',
@@ -59,5 +58,5 @@
  'poutcome_nonexistent',
  'poutcome_success',
  'y_no',
- 'y_yes'
-]
+ 'y_yes']
+ 
