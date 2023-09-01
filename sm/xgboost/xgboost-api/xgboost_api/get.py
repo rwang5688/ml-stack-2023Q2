@@ -27,19 +27,19 @@ def lambda_handler(event, context):
     # DEBUG: print event with formattings
     print("event: %s" % json.dumps(event, indent=2))
 
-    # retrieve message
-    message = ''
+    # retrieve record
+    record = ''
     if 'queryStringParameters' in event:
         query_string_parameters = event['queryStringParameters']
         print("query_string_parameters: %s" % (query_string_parameters))
-        if 'message' in query_string_parameters:
-            message = query_string_parameters['message']
-    print("message: %s" % (message))
+        if 'record' in query_string_parameters:
+            record = query_string_parameters['record']
+    print("record: %s" % (record))
 
     # replace with your actual endpoint_name
-    endpoint_name = 'sst2-text-classification-ep-2022-10-06-18-26-57'
+    endpoint_name = 'xgboost-serverless-ep2023-09-01-05-44-56'
     print("endpoint_name: %s" % (endpoint_name))
-    response = sm_util.invoke_endpoint(endpoint_name, message)
+    response = sm_util.invoke_endpoint(endpoint_name, record)
     print("response: %s" % json.dumps(response, indent=2))
 
     # set and log return_val

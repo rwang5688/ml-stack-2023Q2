@@ -1,9 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  sm-api
+  xgboost-api
 
-  SAM Template for sm-api
+  SAM Template for xgboost-api
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -14,16 +14,16 @@ Resources:
   GetFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: sm_api/
+      CodeUri: xgboost_api/
       Handler: get.lambda_handler
       Runtime: python3.7
       Policies: 
         - AmazonSageMakerFullAccess
       Events:
-        HelloWorld:
+        Get:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /sm-api
+            Path: /xgboost-api
             Method: get
 
 
@@ -33,7 +33,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   GetFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for GET function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/sm-api/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/xgboost-api/"
 
   GetFunction:
     Description: "GET Lambda Function ARN"
