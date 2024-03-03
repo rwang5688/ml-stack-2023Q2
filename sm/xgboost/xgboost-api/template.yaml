@@ -16,7 +16,7 @@ Resources:
     Properties:
       CodeUri: xgboost_api/
       Handler: get.lambda_handler
-      Runtime: python3.7
+      Runtime: python3.9
       Policies: 
         - AmazonSageMakerFullAccess
       Events:
